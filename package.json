@@ -1,0 +1,12 @@
+{
+  "name": "sharon-ai-landing-page",
+  "version": "1.0.0",
+  "description": "Promotional landing page for Sharon AI",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
