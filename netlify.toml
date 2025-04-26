@@ -1,0 +1,9 @@
+# netlify.toml
+[build]
+  publish = "."
+  command = "echo 'No build step required for static site'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
