@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharon AI | Expert-Designed AI Workflows</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Editor dependencies -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Panel Toggle -->
+    <div class="admin-toggle">
+        <button id="adminToggleBtn" class="btn btn-sm" data-i18n="admin"><i class="fas fa-lock"></i> Admin</button>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-header">
+            <h3 data-i18n="contentEditor">Content Editor</h3>
+            <button id="closeAdminBtn" class="btn btn-sm btn-dark"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-nav">
+                <button class="admin-nav-btn active" data-section="hero" data-i18n="heroSection">Hero Section</button>
+                <button class="admin-nav-btn" data-section="features" data-i18n="featuresSection">Features</button>
+                <button class="admin-nav-btn" data-section="industries" data-i18n="industriesSection">Industries</button>
+                <button class="admin-nav-btn" data-section="process" data-i18n="processSection">Process</button>
+                <button class="admin-nav-btn" data-section="testimonials" data-i18n="testimonialsSection">Testimonials</button>
+                <button class="admin-nav-btn" data-section="cta" data-i18n="ctaSection">Call to Action</button>
+                <button class="admin-nav-btn" data-section="videos" data-i18n="videosSection">Videos</button>
+            </div>
+            <div class="admin-editor">
+                <div id="editor"></div>
+                <div class="editor-controls">
+                    <button id="saveChangesBtn" class="btn btn-primary" data-i18n="saveChanges">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="brand-text">Sharon AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features" data-i18n="features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#industries" data-i18n="industries">Industries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process" data-i18n="howItWorks">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials" data-i18n="testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-i18n="contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-login" href="#" data-i18n="login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section editable-section" data-section="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="editable" data-field="heading" data-i18n="heroHeading">Custom AI Workflows Designed For Your Business</h1>
+                    <p class="lead editable" data-field="subheading" data-i18n="heroSubheading">We build and deploy AI solutions that automate repetitive tasks and streamline your business processes.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary btn-lg editable" data-field="primary-cta" data-i18n="scheduleConsultation">Schedule a Consultation</a>
+                        <a href="#process" class="btn btn-outline-light btn-lg editable" data-field="secondary-cta" data-i18n="learnHowItWorks">Learn How It Works</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="images/hero-image.svg" alt="Sharon AI Workflow Automation" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section editable-section" data-section="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="editable" data-field="heading" data-i18n="whyChoose">Why Choose Sharon AI</h2>
+                <p class="editable" data-field="subheading" data-i18n="expertDesigned">Our expert-designed AI workflows deliver measurable business impact</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature1-title" data-i18n="expertiseDriven">Expertise-Driven</h3>
+                        <p class="editable" data-field="feature1-desc" data-i18n="expertiseDrivenDesc">Our team designs custom workflows based on deep industry knowledge and AI expertise</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature2-title" data-i18n="fullService">Full-Service Solution</h3>
+                        <p class="editable" data-field="feature2-desc" data-i18n="fullServiceDesc">From consulting to implementation to support, we handle every aspect of your AI journey</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature3-title" data-i18n="industrySpecific">Industry-Specific</h3>
+                        <p class="editable" data-field="feature3-desc" data-i18n="industrySpecificDesc">Tailored solutions for your specific industry needs with proven workflows</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature4-title" data-i18n="measurableROI">Measurable ROI</h3>
+                        <p class="editable" data-field="feature4-desc" data-i18n="measurableROIDesc">Clear business impact with performance metrics that demonstrate value</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature5-title" data-i18n="enterpriseReady">Enterprise-Ready</h3>
+                        <p class="editable" data-field="feature5-desc" data-i18n="enterpriseReadyDesc">Secure, scalable, and compliant with your organization's requirements</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="editable" data-field="feature6-title" data-i18n="dedicatedSupport">Dedicated Support</h3>
+                        <p class="editable" data-field="feature6-desc" data-i18n="dedicatedSupportDesc">Ongoing assistance and optimization to ensure your workflows deliver maximum value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section id="video-showcase" class="video-section editable-section" data-section="videos">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="editable" data-field="heading" data-i18n="seeInAction">See Sharon AI in Action</h2>
+                <p class="editable" data-field="subheading" data-i18n="watchHow">Watch how our expert-designed workflows transform business operations</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="video-container editable" data-field="main-video">
+                        <!-- Video embed will go here -->
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p data-i18n="addVideo">Add your video embed code in the admin panel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="video-card editable" data-field="video1">
+                        <div class="video-placeholder small">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 data-i18n="retailDemo">Retail Workflow Demo</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="video-card editable" data-field="video2">
+                        <div class="video-placeholder small">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 data-i18n="accountingDemo">Accounting Workflow Demo</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="video-card editable" data-field="video3">
+                        <div class="video-placeholder small">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 data-i18n="engineeringDemo">Engineering Workflow Demo</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries-section editable-section" data-section="industries">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="editable" data-field="heading" data-i18n="industrySolutions">Industry Solutions</h2>
+                <p class="editable" data-field="subheading" data-i18n="specializedWorkflows">Specialized AI workflows for your specific industry needs</p>
+            </div>
+            <div class="row">
+                <!-- Retail & Distribution -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry1-title" data-i18n="retailDistribution">Retail & Distribution</h3>
+                        <p class="editable" data-field="industry1-desc" data-i18n="retailDesc">Transform inventory management, supply chains, and customer experiences with AI-powered workflows that turn challenges into competitive advantages.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Professional Services -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry2-title" data-i18n="professionalServices">Professional Services</h3>
+                        <p class="editable" data-field="industry2-desc" data-i18n="professionalDesc">Elevate accounting and legal practices with AI workflows that process documents, ensure compliance, and deliver strategic insights to clients.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Healthcare & Wellness -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry3-title" data-i18n="healthcare">Healthcare & Wellness</h3>
+                        <p class="editable" data-field="industry3-desc" data-i18n="healthcareDesc">Enhance patient care with AI workflows that optimize resources, improve safety, streamline compliance, and coordinate care across providers.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Built Environment -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry4-title" data-i18n="builtEnvironment">Built Environment</h3>
+                        <p class="editable" data-field="industry4-desc" data-i18n="builtDesc">Transform construction, engineering, and real estate with AI workflows that optimize planning, enhance quality control, and streamline compliance.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Education & Training -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry5-title" data-i18n="education">Education & Training</h3>
+                        <p class="editable" data-field="industry5-desc" data-i18n="educationDesc">Revolutionize learning with AI workflows that create personalized pathways, optimize content, enhance assessment, and streamline administration.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Government & Public Sector -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry6-title" data-i18n="government">Government & Public Sector</h3>
+                        <p class="editable" data-field="industry6-desc" data-i18n="governmentDesc">Transform citizen services with AI workflows that streamline document processing, enhance engagement, and optimize resource allocation.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Security & Protection -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry7-title" data-i18n="security">Security & Protection</h3>
+                        <p class="editable" data-field="industry7-desc" data-i18n="securityDesc">Safeguard what matters with AI workflows that detect threats, optimize resource deployment, coordinate responses, and streamline documentation.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Travel & Hospitality -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry8-title" data-i18n="travel">Travel & Hospitality</h3>
+                        <p class="editable" data-field="industry8-desc" data-i18n="travelDesc">Craft exceptional journeys with AI workflows that create personalized experiences, optimize pricing, manage disruptions, and enhance communication.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Manufacturing & Production -->
+                <div class="col-md-4">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="editable" data-field="industry9-title" data-i18n="manufacturing">Manufacturing & Production</h3>
+                        <p class="editable" data-field="industry9-desc" data-i18n="manufacturingDesc">Optimize production excellence with AI workflows that enhance scheduling, quality control, maintenance, and supply chain resilience.</p>
+                        <a href="#contact" class="industry-link" data-i18n="learnMore">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section editable-section" data-section="process">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="editable" data-field="heading" data-i18n="ourProcess">Our Process</h2>
+                <p class="editable" data-field="subheading" data-i18n="howWeDesign">How we design and implement custom AI workflows for your business</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3 class="editable" data-field="process1-title" data-i18n="consultation">Consultation</h3>
+                        <p class="editable" data-field="process1-desc" data-i18n="consultationDesc">We analyze your business processes and identify opportunities for AI automation</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3 class="editable" data-field="process2-title" data-i18n="workflowDesign">Workflow Design</h3>
+                        <p class="editable" data-field="process2-desc" data-i18n="workflowDesignDesc">Our experts design custom AI workflows tailored to your specific business needs</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3 class="editable" data-field="process3-title" data-i18n="implementation">Implementation</h3>
+                        <p class="editable" data-field="process3-desc" data-i18n="implementationDesc">We build and deploy your custom workflows, integrating with your existing systems</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3 class="editable" data-field="process4-title" data-i18n="trainingSupport">Training & Support</h3>
+                        <p class="editable" data-field="process4-desc" data-i18n="trainingSupportDesc">We provide comprehensive training and ongoing support to ensure success</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <div class="process-content">
+                        <h3 class="editable" data-field="process5-title" data-i18n="optimization">Optimization</h3>
+                        <p class="editable" data-field="process5-desc" data-i18n="optimizationDesc">We continuously monitor and refine your workflows to maximize ROI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section editable-section" data-section="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="editable" data-field="heading" data-i18n="clientSuccess">Client Success Stories</h2>
+                <p class="editable" data-field="subheading" data-i18n="seeHow">See how our AI workflows have transformed businesses like yours</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="editable" data-field="testimonial1-text" data-i18n="testimonial1">"Sharon AI's custom workflows reduced our order processing time by 78% and virtually eliminated errors. Our team now focuses on customer relationships instead of paperwork."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="editable" data-field="testimonial1-name" data-i18n="testimonial1Name">Sarah Johnson</h4>
+                                <p class="editable" data-field="testimonial1-title" data-i18n="testimonial1Title">Operations Director, Global Retail Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="editable" data-field="testimonial2-text" data-i18n="testimonial2">"Implementing Sharon AI's workflows for our accounting practice has been transformative. We've increased our client capacity by 40% without adding staff."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="editable" data-field="testimonial2-name" data-i18n="testimonial2Name">Michael Chen</h4>
+                                <p class="editable" data-field="testimonial2-title" data-i18n="testimonial2Title">Managing Partner, Chen & Associates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="editable" data-field="testimonial3-text" data-i18n="testimonial3">"The security workflows Sharon AI designed for us have reduced false alarms by 92% while improving threat detection. Our clients have never been safer."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="editable" data-field="testimonial3-name" data-i18n="testimonial3Name">David Rodriguez</h4>
+                                <p class="editable" data-field="testimonial3-title" data-i18n="testimonial3Title">CEO, SecureGuard Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section editable-section" data-section="cta">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2 class="editable" data-field="heading" data-i18n="readyToTransform">Ready to Transform Your Business?</h2>
+                <p class="editable" data-field="subheading" data-i18n="scheduleToLearn">Schedule a consultation to learn how our expert-designed AI workflows can automate your business processes</p>
+                <a href="#contact" class="btn btn-primary btn-lg editable" data-field="cta-button" data-i18n="getStarted">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 data-i18n="contactUs">Contact Us</h2>
+                <p data-i18n="letDiscuss">Let's discuss how Sharon AI can transform your business operations</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h2 data-i18n="getInTouch">Get in Touch</h2>
+                        <p data-i18n="interestedIn">Interested in learning more about how Sharon AI can transform your business operations? Fill out the form and our team will get back to you shortly.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@sharonai.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 AI Boulevard, San Francisco, CA 94105</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label" data-i18n="name">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label" data-i18n="email">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="company" class="form-label" data-i18n="company">Company</label>
+                                <input type="text" class="form-control" id="company" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="industry" class="form-label" data-i18n="industry">Industry</label>
+                                <select class="form-select" id="industry" required>
+                                    <option value="" selected disabled data-i18n="selectIndustry">Select your industry</option>
+                                    <option value="Retail & Distribution" data-i18n="retailDistribution">Retail & Distribution</option>
+                                    <option value="Professional Services" data-i18n="professionalServices">Professional Services</option>
+                                    <option value="Healthcare & Wellness" data-i18n="healthcare">Healthcare & Wellness</option>
+                                    <option value="Built Environment" data-i18n="builtEnvironment">Built Environment</option>
+                                    <option value="Education & Training" data-i18n="education">Education & Training</option>
+                                    <option value="Government & Public Sector" data-i18n="government">Government & Public Sector</option>
+                                    <option value="Security & Protection" data-i18n="security">Security & Protection</option>
+                                    <option value="Travel & Hospitality" data-i18n="travel">Travel & Hospitality</option>
+                                    <option value="Manufacturing & Production" data-i18n="manufacturing">Manufacturing & Production</option>
+                                    <option value="Other" data-i18n="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label" data-i18n="message">Message</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-brand">
+                        <h3>Sharon AI</h3>
+                        <p>Expert-designed AI workflows that transform business operations</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h4 data-i18n="company">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="aboutUs">About Us</a></li>
+                        <li><a href="#" data-i18n="team">Team</a></li>
+                        <li><a href="#" data-i18n="careers">Careers</a></li>
+                        <li><a href="#" data-i18n="blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 data-i18n="solutions">Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="retailDistribution">Retail & Distribution</a></li>
+                        <li><a href="#" data-i18n="professionalServices">Professional Services</a></li>
+                        <li><a href="#" data-i18n="healthcare">Healthcare & Wellness</a></li>
+                        <li><a href="#" data-i18n="builtEnvironment">Built Environment</a></li>
+                        <li><a href="#" data-i18n="education">Education & Training</a></li>
+                        <li><a href="#" data-i18n="government">Government & Public Sector</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 data-i18n="resources">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="documentation">Documentation</a></li>
+                        <li><a href="#" data-i18n="caseStudies">Case Studies</a></li>
+                        <li><a href="#" data-i18n="webinars">Webinars</a></li>
+                        <li><a href="#" data-i18n="support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 data-i18n="legal">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="termsOfService">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="copyright">&copy; 2025 Sharon AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
