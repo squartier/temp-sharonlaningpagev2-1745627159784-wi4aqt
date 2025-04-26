@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Sharon AI Hero Image</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#10B981" offset="0%"></stop>
+            <stop stop-color="#059669" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#4361EE" offset="0%"></stop>
+            <stop stop-color="#3A0CA3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hero-Image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background Pattern -->
+        <rect id="Background" fill="#1F2937" x="0" y="0" width="800" height="600"></rect>
+        <g id="Pattern" transform="translate(50, 50)">
+            <circle cx="100" cy="100" r="20" fill="#10B981" opacity="0.1"></circle>
+            <circle cx="300" cy="150" r="30" fill="#4361EE" opacity="0.1"></circle>
+            <circle cx="500" cy="100" r="25" fill="#10B981" opacity="0.1"></circle>
+            <circle cx="200" cy="300" r="35" fill="#4361EE" opacity="0.1"></circle>
+            <circle cx="400" cy="250" r="20" fill="#10B981" opacity="0.1"></circle>
+            <circle cx="600" cy="300" r="30" fill="#4361EE" opacity="0.1"></circle>
+            <circle cx="100" cy="450" r="25" fill="#10B981" opacity="0.1"></circle>
+            <circle cx="300" cy="400" r="20" fill="#4361EE" opacity="0.1"></circle>
+            <circle cx="500" cy="450" r="35" fill="#10B981" opacity="0.1"></circle>
+        </g>
+        
+        <!-- Main Illustration -->
+        <g id="Workflow-Illustration" transform="translate(200, 150)">
+            <!-- Central Hub -->
+            <circle cx="200" cy="150" r="80" fill="url(#linearGradient-1)"></circle>
+            <text x="200" y="155" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Sharon AI</text>
+            
+            <!-- Workflow Nodes -->
+            <circle cx="50" cy="100" r="40" fill="url(#linearGradient-2)"></circle>
+            <text x="50" y="105" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Retail</text>
+            
+            <circle cx="100" cy="250" r="40" fill="url(#linearGradient-2)"></circle>
+            <text x="100" y="255" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Wholesale</text>
+            
+            <circle cx="350" cy="100" r="40" fill="url(#linearGradient-2)"></circle>
+            <text x="350" y="105" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Engineering</text>
+            
+            <circle cx="300" cy="250" r="40" fill="url(#linearGradient-2)"></circle>
+            <text x="300" y="255" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Accounting</text>
+            
+            <!-- Connection Lines -->
+            <line x1="85" y1="115" x2="165" y2="135" stroke="#10B981" stroke-width="3"></line>
+            <line x1="135" y1="235" x2="165" y2="185" stroke="#10B981" stroke-width="3"></line>
+            <line x1="315" y1="115" x2="235" y2="135" stroke="#10B981" stroke-width="3"></line>
+            <line x1="265" y1="235" x2="235" y2="185" stroke="#10B981" stroke-width="3"></line>
+            
+            <!-- Workflow Icons -->
+            <g transform="translate(35, 85)">
+                <rect x="0" y="0" width="30" height="30" rx="5" fill="white" opacity="0.2"></rect>
+                <path d="M5,15 L25,15 M15,5 L15,25" stroke="white" stroke-width="2"></path>
+            </g>
+            
+            <g transform="translate(85, 235)">
+                <rect x="0" y="0" width="30" height="30" rx="5" fill="white" opacity="0.2"></rect>
+                <path d="M5,10 L25,10 M5,20 L25,20" stroke="white" stroke-width="2"></path>
+            </g>
+            
+            <g transform="translate(335, 85)">
+                <rect x="0" y="0" width="30" height="30" rx="5" fill="white" opacity="0.2"></rect>
+                <path d="M10,5 L20,25 M20,5 L10,25" stroke="white" stroke-width="2"></path>
+            </g>
+            
+            <g transform="translate(285, 235)">
+                <rect x="0" y="0" width="30" height="30" rx="5" fill="white" opacity="0.2"></rect>
+                <path d="M10,10 L20,10 M15,10 L15,20 M10,20 L20,20" stroke="white" stroke-width="2"></path>
+            </g>
+            
+            <!-- Central Icon -->
+            <g transform="translate(185, 135)">
+                <rect x="0" y="0" width="30" height="30" rx="5" fill="white" opacity="0.3"></rect>
+                <circle cx="15" cy="15" r="10" stroke="white" stroke-width="2" fill="none"></circle>
+                <path d="M15,5 L15,7 M15,23 L15,25 M5,15 L7,15 M23,15 L25,15" stroke="white" stroke-width="2"></path>
+            </g>
+        </g>
+    </g>
+</svg>
